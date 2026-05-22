@@ -1,0 +1,18 @@
+# Errors before create
+G 1
+P 1 10
+D
+
+# Create capacity 1
+C 1
+P 1 10
+P 2 20
+G 1
+G 2
+P 2 99
+D
+S
+
+# Second create attempt
+C 5
+X

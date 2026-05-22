@@ -1,0 +1,7 @@
+INSERTED
+INSERTED
+INSERTED
+HIT 20
+EVICTED 1 INSERTED
+CACHE: [MRU] 4:40 2:20 3:30 [LRU]
+STATS: hits=1 misses=0 evictions=1 size=3 capacity=3

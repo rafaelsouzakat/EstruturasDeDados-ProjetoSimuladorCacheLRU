@@ -62,24 +62,44 @@ typedef struct Cache {
 // tail.prev aponta para o LRU (ou head se vazia)
 
 static void list_init(Cache* c) {
-    // TODO
-    (void)c;
+    c->head.next = &c->tail; // Liga head à tail e tail à head
+    c->head.prev = NULL;
+    c->tail.next = NULL;
+    c->tail.prev = &c->head;
 }
 
 static void list_remove(Node* n) {
-    // TODO
-    (void)n;
+    n->prev->next = n->next; // Reconecta a lista sem n
+    n->next->prev = n->prev;
+
+    n->next = NULL; // Separa n da lista (não usei free(n) caso n seja necessário depois)
+    n->prev = NULL;
 }
 
 static void list_push_front(Cache* c, Node* n) {
-    // TODO
-    (void)c; (void)n;
+    n->next = c->head.next; // Liga o nó novo ao MRU anterior
+
+    n->prev = &c->head; // Liga o nó novo ao head
+
+    c->head.next->prev = n; // Liga o MRU anterior ao nó novo
+
+    c->head.next = n; // Liga o head ao nó novo
 }
 
 static Node* list_pop_back(Cache* c) {
-    // TODO
-    (void)c;
+    if (c->head.next == &c->tail) // Protege head de ser removido
     return NULL;
+
+    Node* removed = c->tail.prev; // Salva o nó removido
+
+    c->tail.prev = c->tail.prev->prev; // Liga tail ao nó antes do nó removido
+
+    c->tail.prev->next = &c->tail; // Liga o nó antes do nó removido ao tail
+
+    removed->next = NULL; // Separa o nó removido da lista
+    removed->prev = NULL;
+
+    return removed;
 }
 
 // ====== HASH TABLE (SEPARATE CHAINING) ======

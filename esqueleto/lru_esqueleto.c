@@ -1,9 +1,9 @@
-// lru.c
+// lru_esqueleto.c
 // Projeto Final - Estrutura de Dados - 2026-1
 // Simulador de Cache LRU (arquivo unico)
 //
 // Compile:
-//   gcc -std=c11 -Wall -Wextra -O2 lru.c -o lru
+//   gcc -std=c11 -Wall -Wextra -O2 lru_esqueleto.c -o lru
 //
 // Execute:
 //   ./lru < teste_base.txt

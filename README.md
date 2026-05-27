@@ -23,3 +23,6 @@ Observações:
 - Ajuste os comandos de compilação/execução conforme a implementação do `main` no código.
 
 Grupo:
+- Rafael Souza Katahira - 10737786
+- Lucas Vieira - 10737821
+- Kauã Luiz Ramos - 10738995
